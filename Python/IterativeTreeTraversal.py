@@ -39,18 +39,22 @@ def iterativePreOrder(root):
     print(result)
 
 def iterativePostOrder(root):
-    result = []
     stack = []
-    tmp = root
-    while stack or tmp:
-        while tmp:
-            stack.append(tmp)
-            tmp = tmp.left
-        tmp = stack.pop()
-        result.append(tmp.val)
-        tmp = tmp.right
-    for e in result:
-        print(e)
+    res = []
+    lastNodeVisited = None
+    while root or stack:
+        if root:
+            stack.append(root)
+            root = root.left
+        else:
+            top = stack[-1]
+            if top.right and lastNodeVisited != top.right:
+                root = top.right
+            else:
+                res.append(top.val)
+                lastNodeVisited = stack.pop()
+    for i in res:
+        print(i)
 
 def iterativeInOrder(root):
     result = []
@@ -71,4 +75,4 @@ root = Node(5)
 for i in [4,-6,30,-16,2,48,3]:
     insert(root,i)
 
-iterativeInOrder(root)
+iterativePostOrder(root)
