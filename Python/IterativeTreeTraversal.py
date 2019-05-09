@@ -51,8 +51,24 @@ def iterativePostOrder(root):
         tmp = tmp.right
     for e in result:
         print(e)
+
+def iterativeInOrder(root):
+    result = []
+    stack = []
+    tmp = root
+    while stack or tmp:
+        if tmp:
+            stack.append(tmp)
+            tmp = tmp.left
+        else:
+            tmp = stack[-1]
+            stack.pop()
+            result.append(tmp)
+            tmp = tmp.right
+    for e in result:
+        print(e.val)
 root = Node(5)
-for i in [3,1,0,2,8,6,10,11]:
+for i in [4,-6,30,-16,2,48,3]:
     insert(root,i)
 
-iterativePostOrder(root)
+iterativeInOrder(root)
