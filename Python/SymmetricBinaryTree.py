@@ -22,11 +22,12 @@ class Node:
                     break
 
     def isSym(self,root):
-        return root == None or auxIsSym(root.left,root.right)
+        return root == None or self.auxIsSym(root.left,root.right)
     
     def auxIsSym(self,root1,root2):
-        if root1 == None || root2 == None:
+        if root1 == None or root2 == None:
             return root1 == root2
         if root1.val != root2.val:
             return False
-        return auxIsSym(root1.left,root2.right) and auxIsSym(root1.right,root2.left)
+        return self.auxIsSym(root1.left,root2.right) and self.auxIsSym(root1.right,root2.left)
+    
