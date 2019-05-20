@@ -12,13 +12,5 @@ class Solution:
         """
         if not node.next:
             return
-        else:
-            curr = node
-            while curr:
-                if curr.next and curr.next.next:
-                    curr.val = curr.next.val
-                    curr = curr.next
-                elif curr.next and not curr.next.next:
-                    curr.val = curr.next.val
-                    curr.next = None
-                    break
+        node.val = node.next.val
+        node.next = node.next.next
