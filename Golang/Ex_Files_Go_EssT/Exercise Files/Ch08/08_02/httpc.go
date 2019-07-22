@@ -8,6 +8,7 @@ import (
 	"os"
 )
 
+
 func main() {
 	// GET request
 	resp, err := http.Get("https://httpbin.org/get")
@@ -19,4 +20,3 @@ func main() {
 	io.Copy(os.Stdout, resp.Body)
 }
 
-	

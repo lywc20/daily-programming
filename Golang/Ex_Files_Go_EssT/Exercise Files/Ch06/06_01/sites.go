@@ -4,6 +4,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"sync"
 )
 
 func returnType(url string) {
@@ -24,8 +25,13 @@ func main() {
 		"https://api.github.com",
 		"https://httpbin.org/xml",
 	}
-
+	var wg sync.WaitGroup
 	for _, url := range urls {
-		returnType(url)
+			wg.Add(1)
+			go func(url string) {
+					returnType(url)
+					wg.Done()
+			}(url)
 	}
+	wg.Wait()
 }

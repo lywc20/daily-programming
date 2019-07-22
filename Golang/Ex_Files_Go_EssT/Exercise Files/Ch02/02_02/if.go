@@ -8,7 +8,7 @@ import (
 func main() {
 	x := 10
 
-	if x > 5 {
+	if x > 5 { //No parenthesis needed in condition statement
 		fmt.Println("x is big")
 	}
 }

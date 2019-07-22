@@ -20,7 +20,7 @@ type Circle struct {
 	Radius float64
 }
 
-// Area returns the curcle of the square
+// Area returns the circle of the square
 func (c *Circle) Area() float64 {
 	return math.Pi * c.Radius * c.Radius
 }
